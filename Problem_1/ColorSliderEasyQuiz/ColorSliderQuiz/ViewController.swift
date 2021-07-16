@@ -8,29 +8,23 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
     @IBOutlet weak var BackGround: UIView!
+    @IBOutlet weak var redSlider: UISlider!
+    @IBOutlet weak var greenSlider: UISlider!
+    @IBOutlet weak var blueSlider: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    @IBAction func redSliderMoved (_ sender: UISlider) {
+    
+    @IBAction func button(_ sender: Any) {
+        let red = CGFloat(redSlider.value / 255.0)
+        let green = CGFloat(greenSlider.value / 255.0)
+        let blue = CGFloat(blueSlider.value / 255.0)
         
-        let rvalue : CGFloat = CGFloat(sender.value / 255.0)
-        
-        BackGround.backgroundColor = UIColor(red: rvalue, green: 0, blue: 0, alpha: 1)
-    }
-    @IBAction func greenSliderMoved(_ sender: UISlider) {
-        
-        let gvalue : CGFloat = CGFloat(sender.value / 255.0)
-        
-        BackGround.backgroundColor = UIColor(red: 0, green: gvalue, blue: 0, alpha: 1)
-        
-    }
-    @IBAction func blueSliderMoved(_ sender: UISlider) {
-        let bvalue : CGFloat = CGFloat(sender.value / 255.0)
-        
-        BackGround.backgroundColor = UIColor(red: 0, green: 0, blue: bvalue, alpha: 1)
+        BackGround.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
     }
     
     
